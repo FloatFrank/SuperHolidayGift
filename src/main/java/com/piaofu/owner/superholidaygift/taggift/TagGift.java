@@ -45,7 +45,7 @@ public class TagGift implements ITagGift{
     //自动回收的时间
     private static int delTime;
     //自动计时销毁
-    private static int delTimeNow = 0;
+    private int delTimeNow = 0;
 
 
     private static DropWay dropWay;
