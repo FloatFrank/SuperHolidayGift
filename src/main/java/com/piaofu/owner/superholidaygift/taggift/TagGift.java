@@ -42,6 +42,11 @@ public class TagGift implements ITagGift{
     private static double xMove;
     private static double yMove;
     private static double zMove;
+    //自动回收的时间
+    private static int delTime;
+    //自动计时销毁
+    private static int delTimeNow = 0;
+
 
     private static DropWay dropWay;
 
@@ -77,6 +82,7 @@ public class TagGift implements ITagGift{
         textHeight = SuperHolidayGift.plugin.getConfig().getDouble("textHeight");
         textEnable = SuperHolidayGift.plugin.getConfig().getBoolean("textEnable");
         textBack = SuperHolidayGift.plugin.getConfig().getBoolean("textBack");
+        delTime = SuperHolidayGift.plugin.getConfig().getInt("delTime");
     }
 
     public static double getXMove() {
@@ -126,7 +132,11 @@ public class TagGift implements ITagGift{
 
             @Override
             public void run() {
-//              Bukkit.getConsoleSender().sendMessage("debug >>> " + tagNowLoc.getX() + tagNowLoc.getY() + tagNowLoc.getZ());
+                delTimeNow += speed;
+                if(delTimeNow / 1200 >= delTime) {
+                    cancel();
+                    delete();
+                }
                 Bukkit.getOnlinePlayers().forEach(item -> hasPlayerCatch(item));
                 if(!stop) {
                     refresh();
