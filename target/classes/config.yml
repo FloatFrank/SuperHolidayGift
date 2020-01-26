@@ -1,0 +1,122 @@
+#下降方式
+# BOTH_BLOCK_FW: 在范围内最顶端随机生成礼包，依次往下掉落，直到碰到方块或者到达范围底部停止
+# BOTH_BLOCK_XK: 在范围内最顶端随机生成礼包，依次往下掉落，直到碰到方块或者触碰到虚空停止
+# BOTH_ALL_RANDOM: 生成时每一个礼包的X、Y、Z轴全部随机，可能会卡在方块里，直到碰到方块或者到达范围底部停止
+dropWay: 'BOTH_BLOCK_XK'
+#指令颜色
+commandColor: '§b'
+#藏宝图显示半径 (int类型，以格为单位)
+guideR: 10
+#藏宝图中心点字符串
+guideP: "   "
+#藏宝图无礼包字符串
+guideE: "□  "
+#藏宝图有礼包字符串
+guideH: "§4□  §r"
+#藏宝图界面配置
+gui:
+  size:
+    w: 512
+    h: 288
+  url: '[local]guide.png'
+  text:
+    x: 207
+    y: 42
+  #子信息块(左侧)
+  subText:
+    x: 20
+    y: 80
+  #刷新按钮
+  refreshButton:
+    #贴图大小
+    w: 30
+    h: 10
+    #贴图位置
+    x: 80
+    y: 120
+    #贴图地址
+    url: '[local]back_select.png'
+    url_: '[local]back_select.png'
+#Tag是否跟随玩家转向而转向
+for_player: true
+#文字tag配置
+#是否开启宝箱上的文字显示
+textEnable: true
+#是否去掉黑色背景
+textBack: true
+#文字相对于物品的高度
+textHeight: 1.0
+#文字位置偏移(可以是小数，正负数皆可)
+textMove:
+  x: 0
+  y: 0
+  z: 0.5
+#图片旋转
+#图片沿X轴旋转的角度
+angle_x: 1
+#图片沿Y轴旋转角度
+angle_y: 1
+#图片沿Z轴旋转角度
+angle_z: 50
+#多少tick刷新一次
+speed: 3
+#每次刷新下降多少
+down: 1
+#贴图位置偏移：有些时候可能VV的贴图会产生偏移，那么可以在下面进行相对位置的配置 (可以是小数，正负数皆可)
+imageMove:
+  x: 1
+  y: 0
+  z: 0.5
+giftList:
+  #某礼包，生成命令使用这个
+  zz:
+    #贴图地址
+    url: '[local]zongzi.png'
+    #贴图大小
+    width: 30
+    height: 30
+    #图片显示宽度
+    xs: 1
+    ys: 1
+    #礼包指令
+    commands:
+      - 'eco give [player] 1000'
+    #礼包展示名【注意生成命令不是使用这个】
+    display: '§4大个的粽子'
+    #可用变量列表礼包名:[INFO] 数量:[NUM] 插入>line可切换到副标题
+    show: '§4已开始空降[NUM]个粽子>line§c赶快来抢夺吧！'
+    #获取的概率（填0-1）
+    oppt: 0.5
+    getM: '成功获取粽子，祝你端午安康'
+    failM: '差一点就获得了粽子，下一次加油哦！'
+  yb:
+    #贴图地址
+    url: '[local]yuebing.png'
+    #贴图大小
+    width: 30
+    height: 30
+    #图片显示宽度
+    xs: 3
+    ys: 3
+    #礼包指令
+    commands:
+      - 'eco give [player] 1000'
+    #礼包展示名【注意生成命令不是使用这个】
+    display: '§b月饼宝盒'
+    #可用变量列表礼包名:[INFO] 数量:[NUM] 插入>line可切换到副标题
+    show: '§4已开始空降[NUM]个月饼宝盒>line§c赶快来抢夺吧！'
+    #获取的概率（填0-1）
+    oppt: 0.5
+    getM: '成功获取月饼，祝你中秋节快乐'
+    failM: '差一点就获得了月饼，下一次加油哦！'
+locationList:
+  sampleloc:
+    world: 'world'
+    from:
+      x: 33
+      y: 69
+      z: 75
+    to:
+      x: -31
+      y: 133
+      z: 17

@@ -1,0 +1,7 @@
+name: SuperHolidayGift
+version: ${project.version}
+main: com.piaofu.owner.superholidaygift.SuperHolidayGift
+api-version: 1.13
+depend: [VexView]
+authors: [PiaoFu]
+description: This is a plugin what is holiday gift for server
